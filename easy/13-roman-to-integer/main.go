@@ -1,7 +1,6 @@
 package main
 
 // https://leetcode.com/problems/roman-to-integer/
-
 func romanToInt(s string) int {
 	romanMap := map[string]int{
 		"I": 1,
