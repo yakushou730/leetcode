@@ -1,4 +1,4 @@
-package main
+package max_consecutive_ones
 
 // https://leetcode.com/explore/learn/card/fun-with-arrays/521/introduction/3238/
 func findMaxConsecutiveOnes(nums []int) int {
