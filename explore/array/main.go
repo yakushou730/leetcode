@@ -1,5 +1,6 @@
 package main
 
+// https://leetcode.com/explore/learn/card/fun-with-arrays/521/introduction/3238/
 func findMaxConsecutiveOnes(nums []int) int {
 	counter := 0
 	max := 0
