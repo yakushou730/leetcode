@@ -2,19 +2,17 @@ package main
 
 func sortedSquares(nums []int) []int {
 	var result []int
+	i := 0
 	j := len(nums) - 1
-	for i := 0; i < len(nums); i++ {
+	for k := 0; k < len(nums); k++ {
 		squaredI := nums[i] * nums[i]
 		squaredJ := nums[j] * nums[j]
 		if squaredI > squaredJ {
 			result = append(result, squaredI)
+			i++
 		} else {
 			result = append(result, squaredJ)
-			i--
 			j--
-		}
-		if j == i {
-			break
 		}
 	}
 
