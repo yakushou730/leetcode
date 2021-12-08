@@ -1,4 +1,4 @@
-package max_consecutive_ones
+package main
 
 import "testing"
 
