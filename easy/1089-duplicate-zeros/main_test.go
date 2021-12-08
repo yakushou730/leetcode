@@ -1,4 +1,4 @@
-package _089_duplicate_zeros
+package main
 
 import (
 	"reflect"

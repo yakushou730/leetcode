@@ -1,5 +1,6 @@
-package _089_duplicate_zeros
+package main
 
+// https://leetcode.com/problems/duplicate-zeros/
 func duplicateZeros(arr []int) {
 	i := 0
 	for i < len(arr) {
