@@ -2,19 +2,31 @@ package main
 
 // https://leetcode.com/problems/two-sum/
 func twoSum(nums []int, target int) []int {
-	numsMap := make(map[int]int)
-	for i, v := range nums {
-		numsMap[v] = i
-	}
-	var oneOfItem int
+	m := make(map[int]int)
 	for i := 0; i < len(nums); i++ {
-		oneOfItem = target - nums[i]
-		if _, ok := numsMap[oneOfItem]; ok && numsMap[oneOfItem] != i {
-			return []int{i, numsMap[oneOfItem]}
+		another := target - nums[i]
+		if _, ok := m[another]; ok {
+			return []int{m[another], i}
 		}
+		m[nums[i]] = i
 	}
-	return []int{}
+	return nil
 }
+
+//func twoSum(nums []int, target int) []int {
+//	numsMap := make(map[int]int)
+//	for i, v := range nums {
+//		numsMap[v] = i
+//	}
+//	var oneOfItem int
+//	for i := 0; i < len(nums); i++ {
+//		oneOfItem = target - nums[i]
+//		if _, ok := numsMap[oneOfItem]; ok && numsMap[oneOfItem] != i {
+//			return []int{i, numsMap[oneOfItem]}
+//		}
+//	}
+//	return []int{}
+//}
 
 // func twoSum(nums []int, target int) []int {
 // 	var firstIndex, secondIndex int
