@@ -1,35 +1,63 @@
 package main
 
 // https://leetcode.com/problems/roman-to-integer/
+var roman = map[string]int{
+	"I": 1,
+	"V": 5,
+	"X": 10,
+	"L": 50,
+	"C": 100,
+	"D": 500,
+	"M": 1000,
+}
+
 func romanToInt(s string) int {
-	romanMap := map[string]int{
-		"I": 1,
-		"V": 5,
-		"X": 10,
-		"L": 50,
-		"C": 100,
-		"D": 500,
-		"M": 1000,
+	if s == "" {
+		return 0
 	}
-
-	sum := 0
-	var prevStr string
-	for i := 1; i <= len(s); i++ {
-		currStr := string(s[len(s)-i])
-		if prevStr == "" {
-			sum += romanMap[currStr]
+	num, lastInt, sum := 0, 0, 0
+	for i := 0; i < len(s); i++ {
+		char := s[len(s)-(i+1) : len(s)-i]
+		num = roman[char]
+		if num < lastInt {
+			sum -= num
 		} else {
-			if romanMap[currStr] < romanMap[prevStr] {
-				sum -= romanMap[currStr]
-			} else {
-				sum += romanMap[currStr]
-			}
+			sum += num
 		}
-		prevStr = currStr
+		lastInt = num
 	}
-
 	return sum
 }
+
+//func romanToInt(s string) int {
+//	romanMap := map[string]int{
+//		"I": 1,
+//		"V": 5,
+//		"X": 10,
+//		"L": 50,
+//		"C": 100,
+//		"D": 500,
+//		"M": 1000,
+//	}
+//
+//	sum := 0
+//	var prevStr string
+//	for i := 1; i <= len(s); i++ {
+//		currStr := string(s[len(s)-i])
+//		if prevStr == "" {
+//			sum += romanMap[currStr]
+//		} else {
+//			if romanMap[currStr] < romanMap[prevStr] {
+//				sum -= romanMap[currStr]
+//			} else {
+//				sum += romanMap[currStr]
+//			}
+//		}
+//		prevStr = currStr
+//	}
+//
+//	return sum
+//}
 
 //func romanToInt(s string) int {
 //	romanMap := map[string]int{
